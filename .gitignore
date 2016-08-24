@@ -3,4 +3,6 @@
 /npm-debug.log
 specs.js
 update_all_branches
-.idea/*
+/.idea/*
+/.idea/workspace.xml
+/.gitignore
