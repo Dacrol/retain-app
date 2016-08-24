@@ -8,7 +8,6 @@ import { Main } from './containers';
     ],
     template: `
     <div>
-    Hello world!
     <main-container></main-container>
     </div>
   `
