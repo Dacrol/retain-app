@@ -21,7 +21,7 @@ import { NoteCard } from '../ui';
     </div>
     <div class="notes col-xs-8">
         <div class="row between-xs">
-            <note-card class="col-xs-4" [note]="note">
+            <note-card class="col-xs-4" [note]="note" *ngFor="let note of notes; let i = index" (checked)="onNoteChecked($event, i)">
             </note-card>
         </div>
     </div>
@@ -29,5 +29,13 @@ import { NoteCard } from '../ui';
 	`
 })
 export class Notes {
-    note = {title: 'new note', value: 'code!'};
+    notes = [
+        {title: 'new note', value: 'code!', color: '#DDF'},
+        {title: 'new note', value: 'code more!', color: '#DFD'},
+        {title: 'new note', value: 'keep coding ffs!', color: '#FDF'}];
+    onNoteChecked(note, i){
+        console.log(note);
+        this.notes.splice(i,1)
+    }
+    //note = {title: 'new note', value: 'code!', color: '#DDF'};
 }
