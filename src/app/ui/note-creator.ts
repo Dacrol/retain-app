@@ -22,7 +22,7 @@ import { ColorPicker } from './color-picker';
     }*/`],
     template: `
 <div class="note-creator shadow-2" [ngStyle]="{'background-color': newNote.color}">
-    <pre>{{ newNote | json }}</pre>
+    <!--<pre>{{ newNote | json }}</pre>-->
     <form class="row" (ngSubmit)="onCreateNote()">
         <input
                 type="text"

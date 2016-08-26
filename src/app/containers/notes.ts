@@ -5,6 +5,7 @@ import { Component} from '@angular/core';
 import { NoteCard } from '../ui';
 import { NoteCreator } from '../ui';
 import { NoteService } from '../services';
+import { OnDestroy } from '@angular/core'
 
 @Component ({
     selector: 'notes-container',
@@ -32,10 +33,12 @@ import { NoteService } from '../services';
 </div>
 	`
 })
-export class Notes {
+export class Notes implements OnDestroy {
 
     notes = [];
-
+    ngOnDestroy(){
+        console.log('Notes component destroyed')
+    }
     // notes = [
     //     {title: 'new note', value: 'code!', color: '#DDF'},
     //     {title: 'new note', value: 'code more!', color: '#DFD'},
