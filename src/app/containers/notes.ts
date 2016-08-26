@@ -34,7 +34,8 @@ export class Notes {
     notes = [
         {title: 'new note', value: 'code!', color: '#DDF'},
         {title: 'new note', value: 'code more!', color: '#DFD'},
-        {title: 'new note', value: 'keep coding ffs!', color: '#FDF'}];
+        {title: 'new note', value: 'keep coding ffs!', color: '#FDF'},
+        {title: 'new note', value: 'rome wasn\'t built in a day :(', color: '#FAD'}];
     onNoteChecked(note, i){
         console.log(note);
         this.notes.splice(i,1)

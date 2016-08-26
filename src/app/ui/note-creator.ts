@@ -23,7 +23,7 @@ import { ColorPicker } from './color-picker';
     template: `
 <div class="note-creator shadow-2" [ngStyle]="{'background-color': newNote.color}">
     <pre>{{ newNote | json }}</pre>
-    <form class="row" (submit)="onCreateNote()">
+    <form class="row" (ngSubmit)="onCreateNote()">
         <input
                 type="text"
                 [(ngModel)]="newNote.title"
@@ -60,7 +60,7 @@ import { ColorPicker } from './color-picker';
 })
 
 export class NoteCreator{
-
+    @Output() createNote = new EventEmitter();
 
     newNote = {
         title: '',
@@ -70,7 +70,6 @@ export class NoteCreator{
 
     colors: Array<string> = ['#b19cd9', '#ff9691', '#77dd77', '#aec6cf', '#f49ac2', 'white'];
 
-    @Output() createNote = new EventEmitter();
 
 
 
@@ -80,7 +79,7 @@ export class NoteCreator{
     onCreateNote(){
         const {title, value, color} = this.newNote;
 
-        if(title && value){
+        if(value){
             this.createNote.next({title,value, color});
             this.reset();
             this.fullForm = false;
@@ -101,7 +100,7 @@ export class NoteCreator{
 
     onColorSelect(color: string) {
         this.newNote.color = color;
-        
+
     }
 
 }
