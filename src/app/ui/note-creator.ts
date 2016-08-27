@@ -17,13 +17,17 @@ import { ColorPicker } from './color-picker';
       font-weight: bold;
       color: rgba(0,0,0,0.8);
     }
+    .valuebox {
+        resize: none;
+        border: none;
+    }
     /*.full {
       height: 100px;
     }*/`],
     template: `
 <div class="note-creator shadow-2" [ngStyle]="{'background-color': newNote.color}">
     <!--<pre>{{ newNote | json }}</pre>-->
-    <form class="row" (ngSubmit)="onCreateNote()">
+    <form class="row"> 
         <input
                 type="text"
                 [(ngModel)]="newNote.title"
@@ -32,15 +36,15 @@ import { ColorPicker } from './color-picker';
                 class="col-xs-10 title"
                 *ngIf="fullForm"
         >
-        <input
+        <textarea
                 type="text"
                 (focus)="toggleFull(true)"
                 [ngModel]="newNote.value"
                 (ngModelChange)="newNote.value = $event"
                 name="newNoteValue"
                 placeholder="Take a note..."
-                class="col-xs-10"
-        >
+                class="col-xs-10 valuebox"
+        ></textarea>
         <div class="actions col-xs-12 row between-xs" *ngIf="fullForm">
         <div class="col-xs-3">
         <color-picker 
@@ -48,8 +52,8 @@ import { ColorPicker } from './color-picker';
         [colors]="colors"
         ></color-picker>
         </div>
-            <button
-                    type="submit"
+            <button (click)="onCreateNote()"
+                    type="button"
                     class="btn-light"
             >
                 Done
@@ -80,7 +84,7 @@ export class NoteCreator{
         const {title, value, color} = this.newNote;
 
         if(value){
-            this.createNote.next({title,value, color});
+            this.createNote.next({title, value, color});
             this.reset();
             this.fullForm = false;
         }

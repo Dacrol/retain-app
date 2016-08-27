@@ -21,11 +21,13 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     text-align: left;
     color: rgba(0,0,0,0.5);
     margin-bottom: 6px;
+    margin-top: 6px;
 }
 .value {
     text-align: left;
     font-size: 2.7vmin;
     font-weight: 200;
+    white-space: pre-line;
 }
 .icon {
     position: absolute;
@@ -45,12 +47,14 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div class="icon" *ngIf="showCheck" (click)="onChecked()">
         <i class="material-icons">check</i>
     </div>
-    <div class="col-xs-12 box title">
+    <div class="col-xs-12 box title" *ngIf="note.title.length != 0">
         {{ note.title }}
     </div>
     <div class="col-xs-12 box value">
-        {{ note.value }}
+        {{ note.value.trim() }}
     </div>
+    <div class="col-xs-12"><br></div>
+    
 </div>
 `
 })

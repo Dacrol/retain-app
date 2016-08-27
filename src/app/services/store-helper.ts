@@ -13,7 +13,7 @@ export class StoreHelper {
     add(prop, state) {
         const currentState = this.store.getState();
         const collection = currentState[prop];
-        this.store.setState(Object.assign({}, currentState, { [prop]: [state, ...collection] }));
+        this.store.setState(Object.assign({}, currentState, { [prop]: [...collection, state] }));
     }
     findAndUpdate(prop, state) {
         const currentState = this.store.getState();
