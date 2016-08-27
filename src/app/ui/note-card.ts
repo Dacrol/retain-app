@@ -9,21 +9,23 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 .note-card {
     display: flex;
     flex-wrap: wrap;
-    padding: 15px;
+    padding: 6px;
     border-radius: 2px;
     width: 100%;
     position: relative;
+    margin-bottom: 16px;
 }
 .title {
-    font-size: 2.8vw;
+    font-size: 3.2vmin;
     font-weight: normal;
-    text-align: center;
-    color: rgba(0,0,0,0.8);
+    text-align: left;
+    color: rgba(0,0,0,0.5);
+    margin-bottom: 6px;
 }
 .value {
     text-align: left;
-    font-size: 2.5vw;
-    font-weight: 100;
+    font-size: 2.7vmin;
+    font-weight: 200;
 }
 .icon {
     position: absolute;
@@ -43,10 +45,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <div class="icon" *ngIf="showCheck" (click)="onChecked()">
         <i class="material-icons">check</i>
     </div>
-    <div class="box title">
+    <div class="col-xs-12 box title">
         {{ note.title }}
     </div>
-    <div class="box value">
+    <div class="col-xs-12 box value">
         {{ note.value }}
     </div>
 </div>

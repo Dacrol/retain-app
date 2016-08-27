@@ -15,7 +15,7 @@ export class ApiService {
         Accept: 'application/json'
     });
 
-    api_url: string= 'http://localhost:3500';
+    api_url: string= 'http://31.208.79.99:3500';
     constructor(private http: Http){
 }
 
@@ -57,5 +57,4 @@ export class ApiService {
             .catch(err => Observable.throw(err))
             .map(this.getJson)
     }
-
 }

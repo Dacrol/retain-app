@@ -24,8 +24,8 @@ import { OnDestroy } from '@angular/core'
     <div class="col-xs-6 creator">
         <note-creator (createNote)="onCreateNote($event)"></note-creator>
     </div>
-    <div class="notes col-xs-8">
-        <div class="row between-xs">
+    <div class="notes col-xs-10">
+        <div class="row">
             <note-card class="col-xs-4" [note]="note" *ngFor="let note of notes; let i = index" (checked)="onNoteChecked($event, i)">
             </note-card>
         </div>
