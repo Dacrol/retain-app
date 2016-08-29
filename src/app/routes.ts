@@ -2,18 +2,19 @@
  * Created by Dacrol on 2016-08-26.
  */
 import { RouterConfig } from '@angular/router';
-import { Notes, Main, About} from './containers';
+import { Notes, Main, About, Auth } from './containers';
+import { AuthService } from './services';
 
 export const routes: RouterConfig = [
     {
         path: '',
         component: Main,
+        canActivate: [ AuthService ],
         children:[
             {path: '', component: Notes},
             {path: 'about', component: About}
         ]
     },
-    {
-        path: '**', redirectTo: ''
-    }
+    {path: 'auth', component: Auth},
+    {path: '**', redirectTo: ''}
 ];

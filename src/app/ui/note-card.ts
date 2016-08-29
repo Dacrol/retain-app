@@ -14,6 +14,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     width: 100%;
     position: relative;
     margin-bottom: 16px;
+    word-wrap: break-word;
 }
 .title {
     font-size: 3.2vmin;

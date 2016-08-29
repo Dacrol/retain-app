@@ -20,16 +20,16 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
 }
 .link {
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   cursor: pointer; 
   margin-left: 4px;
 }`],
     template: `<header class="app-bar row middle-xs">
-  <span [routerLink]="['']" class="logo col-xs-9">
+  <span [routerLink]="['']" class="logo col-xs-10">
     Dac Notes
   </span>
-    <nav class="col-xs-3">
+    <nav class="col-xs-2">
         <div class="row middle-xs between-xs">
             <span [routerLink]="['', 'about']" class="link">About</span>
             <!--<span class="link">Settings</span>-->
