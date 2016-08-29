@@ -1,0 +1,46 @@
+/**
+ * Created by Dacrol on 2016-08-27.
+ */
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import 'rxjs/Rx';
+
+export interface Note {
+    color: string,
+    title: string,
+    value: string,
+    id?: string | number,
+    createdAt?: string,
+    updatedAt?: string,
+    userId?: string
+}
+
+export interface State {
+    notes: Note[]
+    user: Object;
+}
+
+const defaultState: State = {
+    notes: [],
+    user: {}
+};
+
+const _store = new BehaviorSubject<State>(defaultState);
+
+@Injectable()
+export class Store {
+    private _store= _store;
+    changes = this._store.asObservable().distinctUntilChanged()
+        .do(() => console.log('Changed'));
+
+    setState(state: State){
+        this._store.next(state);
+        console.log('State set: ', state);
+    }
+    getState(): State {
+        return this._store.value;
+    }
+    purge(){
+        this._store.next(defaultState);
+    }
+}
