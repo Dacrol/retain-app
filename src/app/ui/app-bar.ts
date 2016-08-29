@@ -3,6 +3,9 @@
  */
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router'
+import {AuthService} from "../services/auth";
+
+
 @Component ({
     selector: 'app-bar',
     directives: [...ROUTER_DIRECTIVES],
@@ -33,9 +36,17 @@ import { ROUTER_DIRECTIVES } from '@angular/router'
         <div class="row middle-xs between-xs">
             <span [routerLink]="['', 'about']" class="link">About</span>
             <!--<span class="link">Settings</span>-->
-            <span class="link">Logout</span>
+            <span (click)="signout()" class="link">Logout</span>
         </div>
     </nav>
 </header>`
 })
-export class AppBar {}
+export class AppBar {
+
+    constructor(private authService: AuthService){}
+
+    signout(){
+        this.authService.signout();
+    }
+
+}
